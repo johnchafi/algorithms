@@ -39,6 +39,7 @@ const longSubstring = (string) =>{
         }
         map[char]= string[right]
         let subString = string.slice(left, right+1);
+        if(subString.length > longSubString.length) longSubString= subString;
         right += 1;
       
     }
@@ -46,5 +47,4 @@ const longSubstring = (string) =>{
     return longSubString; 
 }
 
-const thisString= longSubstring("ababc");
-console.log("This is long substring" + thisString);
+

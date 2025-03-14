@@ -19,10 +19,6 @@ const maxSum = (list, k) =>{
     
 }
 
-const value = maxSum([2, 1, 5, 1, 3, 2], 3);
-console.log("This is max "+ value);
-
-
 // longest subString without reapeating charcters
 
 const longSubstring = (string) =>{
@@ -46,5 +42,8 @@ const longSubstring = (string) =>{
 
     return longSubString; 
 }
+
+
+module.exports = {maxSum, longSubstring};
 
 

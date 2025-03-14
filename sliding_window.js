@@ -25,7 +25,7 @@ const longSubstring = (string) =>{
     let longSubString = "";
     let left = 0, right = 0;
     let map = {};
-     
+     // test
     for(let i = 0; i< string.length; i++){
         let char = string[i];
         // map[char] > left : verife si window

@@ -1,5 +1,5 @@
 // This algorith retun maximum number of sublist
-
+const{isAnagram} = require("./utils");
 const maxSum = (list, k) =>{
     let maxValue = 0;
     let start = 0;
@@ -42,8 +42,32 @@ const longSubstring = (string) =>{
 
     return longSubString; 
 }
+//Input: text = gotxxotgxdogt, word = got
+const countAnagram = (text, word)=> {
+    let numberAn = 0;
+    let isAnag = ''
+    let map = {}
+    // Calculate the first anagram in given text
+    for(let i = 0; i < word.length ; i++){
+        isAnag +=text[i];
+       
+    }
+    if(isAnagram(isAnag, word)){
+        numberAn +=1
+    }
 
-
-module.exports = {maxSum, longSubstring};
+    // Using window verify if we have anagram by incrementing by one letter
+    for(let i = 1; i < text.length ; i++){
+        isAnag =  isAnag.slice(1) + text[i + word.length -1];
+        if(!isAnag[map] && isAnagram(isAnag, word)){
+          
+            numberAn +=1
+            map[isAnag] = true
+        }
+        map[isAnag] = true
+    }
+    return numberAn;
+}
+module.exports = {maxSum, longSubstring, countAnagram};
 
 

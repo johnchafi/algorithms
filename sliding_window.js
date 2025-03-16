@@ -68,6 +68,51 @@ const countAnagram = (text, word)=> {
     }
     return numberAn;
 }
+// brute force
+const diffMaxMinSubArray = (arr, K) =>{
+    
+    let max = -Infinity;
+    let min = Infinity;
+    
+  
+    for(let i=0; i <= arr.length-K ; i++){
+        let tempSumValue = arr[i];
+        //console.log(tempSumValue);
+        for(let j = i + 1; j<i+K; j++){ß
+             tempSumValue += arr[j];
+         }
+         tempSumValue = tempSumValue/K
+         if (tempSumValue > max) max = tempSumValue;
+         if (tempSumValue < min) min = tempSumValue;
+    }
+   return max - min;
+}
+
+const diffMaxMinSubArray2 = (arr, K) =>{
+    
+    let max = -Infinity;
+    let min = Infinity;
+    let start = 0;
+    let av =0
+    let sum=0
+    for(let i=0; i<= arr.length - K; i++){
+         
+        sum += arr[i]
+        if(i-start + 1 === K){
+            av = sum/2;
+            if (av > max) max = av;
+            if (av < min) min = av;
+            sum -= arr[start];
+            console.log(sum)
+            start += 1;
+        }
+        
+    }
+   return max - min;
+}
+
+const value = diffMaxMinSubArray([3, 8, 9, 15], 2);
+console.log(value)
 module.exports = {maxSum, longSubstring, countAnagram};
 
 

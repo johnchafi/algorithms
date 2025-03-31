@@ -53,12 +53,25 @@ function removeDuplicates(nums) {
     if (nums.length === 0) return 0;
     let k = 1; // Pointer for unique elements
     for (let i = 1; i < nums.length; i++) {
-        
-        console.log(nums)
         if (nums[i] !== nums[i-1]) {
             nums[k] = nums[i];
             k++;
         }
     }
     return k;
+}
+
+const minimumSubArray = (listNum, target)=> {
+    let min = +10000;
+    let back = 0
+    let sum = 0
+    for(let start = 0; start<listNum.length; start++){
+       sum += listNum[start];
+       while(sum >= target){
+           min = Math.min(min, start - back + 1);
+           sum -= listNum[back]
+           back++;
+       }
+       }
+    return min === 10000 ? 0 : min;
 }
